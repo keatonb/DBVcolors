@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 with open("phot_out", "r") as data:
     alls = []
     for line in data:
@@ -49,11 +50,9 @@ q = [float(item) for item in q]
 
 p = np.polyfit(x, y, 1)
 print p
-plt.show()
 plt.xlabel('Airmass')
 plt.ylabel('Instrumental Magnitude')
 plt.title('Magnitude vs Airmass')
-#plt.plot(x, y, 'bo')
-plt.errorbar(x, y, yerr=q, fmt='o')
+plt.errorbar(x, y, yerr=q, fmt='bo')
 plt.plot(x,np.polyval(p,x),'r-')
 plt.show()
